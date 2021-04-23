@@ -1,11 +1,12 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { api } from '../../services/Api';
-import { ConvertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import Link from 'next/link'
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePlayer } from '../../contexts/PlayerContexts';
+import { api } from '../../services/Api';
+import { ConvertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from '../episode.module.scss';
 
 
@@ -17,6 +18,7 @@ type Episode = {
     members: string;
     publishedAt: string;
     durationAsString: string;
+    duration: number;
     description: string;
     url: string;
 }
@@ -26,12 +28,16 @@ type EpisodeProps = {
     episode: Episode;
 }
 
-
 export default function Episode({ episode }: EpisodeProps) {
-    const router = useRouter();
+    const { play } = usePlayer();
 
     return (
         <div className={styles.episode}>
+
+            <Head>
+                <title>{episode.title} | Podcastr</title>
+            </Head>
+
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
                     <button type='button'>
@@ -46,7 +52,7 @@ export default function Episode({ episode }: EpisodeProps) {
                     objectFit="cover"
                 />
 
-                <button type='button'>
+                <button type='button' onClick={() => play(episode)}>
                     <img src="/play.svg" alt="Plau" />
                 </button>
             </div>
