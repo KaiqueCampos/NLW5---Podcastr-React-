@@ -69,8 +69,27 @@ export default function Episode({ episode }: EpisodeProps) {
 
 // SSG Dynamic needs getStaticPaths
 export const getStaticPaths: GetStaticPaths = async () => {
+
+    // Get data
+    const { data } = await api.get('episodes', {
+        params: {
+            _limit: 12,
+            _sort: 'published_at',
+            _order: 'desc'
+        }
+    });
+
+    const paths = data.map(episode => {
+        return {
+            params: {
+                slug: episode.id
+            }
+        }
+    })
+
+    // Incremental Static Regeneration
     return {
-        paths: [],
+        paths,
         fallback: 'blocking'
     }
 }
@@ -98,3 +117,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         revalidate: 60 * 60 * 24
     }
 }
+
+/*
+Fallback: 'blocking' -> Não tenho á pagina estática,
+irá fazer a requisição dos dados e construir a página,
+depois de contruida irá mostrar na tela
+
+Fallback: false -> Não tenho á pagina estática, retorna 404.
+Fallback: true -> Não tenho á pagina estática, constroí no front-end.
+*/
