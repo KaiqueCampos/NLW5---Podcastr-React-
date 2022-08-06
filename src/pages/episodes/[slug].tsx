@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
+import Head  from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePlayer } from '../../contexts/PlayerContexts';
@@ -47,7 +47,7 @@ export default function Episode({ episode }: EpisodeProps) {
 
                 <Image
                     width={700}
-                    height={160}
+                    height={325}
                     src={episode.thumbnail}
                     objectFit="cover"
                 />
@@ -103,6 +103,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // SSG
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const { slug } = ctx.params;
+    console.log(slug)
     const { data } = await api.get(`/episodes/${slug}`)
 
     const episode = {
