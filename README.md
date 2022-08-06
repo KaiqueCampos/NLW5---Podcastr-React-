@@ -3,6 +3,12 @@
     src="https://user-images.githubusercontent.com/70600553/183255341-3115cfc5-2371-4f03-af51-2be371372860.svg"
     width=250
   />
+  
+  <br></br>
+  
+  ![Captura de Tela (997)](https://user-images.githubusercontent.com/70600553/183259675-e0e2b04a-15c3-42ac-97e0-ba23d1bf855a.png)
+  ![Captura de Tela (998)](https://user-images.githubusercontent.com/70600553/183259672-af4ab207-259a-4152-aa16-e06b1b54b1dc.png)
+  ![Captura de Tela (1000)](https://user-images.githubusercontent.com/70600553/183259671-0341d96a-1445-4190-81ab-e4eb03d3fc12.png)
 </p>
 
 # 📕 About this project 
