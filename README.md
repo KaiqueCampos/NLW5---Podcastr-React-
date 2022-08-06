@@ -15,11 +15,11 @@ This is a project for Next Level Week 5th edition of @Rocketseat 🚀. In this N
  - Listen to Podcast in Random Order
 
 # 🚀🔥 Changes made to reach the next level 
- - [ ] Responsividade para todos os dispositivos
- - [ ] Opção de mudança de temas
- - [ ] Bloco de anotações para que as informações do Podcast sejam armazenadas pelo usuário
- - [ ] Opção de salvar como favorito
- - [ ] Criar Playlists 
+ - [ ] Responsiveness for all devices
+ - [ ] Theme change option
+ - [ ] Notebook for Podcast information to be stored by the user
+ - [ ] Option to save as favorite
+ - [ ] Create Playlists
 
 # Technologies used
  - Typescript
